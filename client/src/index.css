@@ -1,0 +1,18 @@
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+input,
+button {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+:root {
+  --boder-color: #e82f3e;
+  --main-color: #EBD600;
+}
