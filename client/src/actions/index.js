@@ -8,8 +8,6 @@ export const SET_RECIPES = "SET_RECIPES",
   CLEAR_MSG = "CLEAR_MSG",
   SET_DIETS = "SET_DIETS"; 
 
-dotenv.config();
-
 const baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
 export function getRecipes() {
