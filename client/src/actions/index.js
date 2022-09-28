@@ -6,11 +6,11 @@ export const SET_RECIPES = "SET_RECIPES",
   SET_RECIPE = "SET_RECIPE",
   CREATE_RECIPE = "CREATE_RECIPE",
   CLEAR_MSG = "CLEAR_MSG",
-  SET_DIETS = "SET_DIETS";
+  SET_DIETS = "SET_DIETS", baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
 export function getRecipes() {
   return function (dispatch) {
-    return fetch("http://localhost:3001/recipes")
+    return fetch(`${baseURL}/recipes`)
       .then((response) => response.json())
       .then((recipes) => dispatch({ type: SET_RECIPES, payload: recipes }));
   };
@@ -22,7 +22,7 @@ export function defaultRecepes() {
 
 export function getRecipesName(title) {
   return function (dispatch) {
-    return fetch(`http://localhost:3001/recipes?name=${title}`)
+    return fetch(`${baseURL}/recipes?name=${title}`)
       .then((response) => response.json())
       .then((recipes) =>
         dispatch({ type: SET_RECIPES_NAME, payload: recipes })
@@ -40,7 +40,7 @@ export function othersFilters(recipes) {
 
 export function getRecipe(id) {
   return function (dispatch) {
-    return fetch(`http://localhost:3001/recipes/${id}`)
+    return fetch(`${baseURL}/recipes/${id}`)
       .then((response) => response.json())
       .then((recipe) => dispatch({ type: SET_RECIPE, payload: recipe }));
   };
@@ -48,7 +48,7 @@ export function getRecipe(id) {
 
 export function createRecipe(recipe) {
   return function (dispatch) {
-    return fetch(`http://localhost:3001/recipes`, {
+    return fetch(`${baseURL}/recipes`, {
       method: "POST",
       body: JSON.stringify(recipe),
       headers: { "Content-Type": "application/json" },
@@ -64,7 +64,7 @@ export function clearMSG() {
 
 export function getDiets() {
   return function (dispatch) {
-    return fetch("http://localhost:3001/diets/")
+    return fetch(`${baseURL}/diets/`)
       .then((response) => response.json())
       .then((diets) => dispatch({ type: SET_DIETS, payload: diets }));
   };
